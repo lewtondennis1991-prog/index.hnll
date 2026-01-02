@@ -1,0 +1,728 @@
+
+/* RETRO TEMPLATE CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.template-retro {
+    font-family: 'VT323', monospace;
+    background: #000;
+    color: #00ccff;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* RETRO BACKGROUND */
+.retro-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(180deg, #1a0033 0%, #000 100%);
+    pointer-events: none;
+}
+
+.sun {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(180deg, #00ff00, #00ccff);
+    border-radius: 50%;
+    box-shadow: 0 0 100px #00ccff, 0 0 200px #00ff0055;
+    animation: pulse-sun 4s ease-in-out infinite;
+}
+
+@keyframes pulse-sun {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.05);
+    }
+}
+
+.grid-retro {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: 
+        linear-gradient(0deg, transparent 24%, #00ccff44 25%, #00ccff44 26%, transparent 27%, transparent),
+        linear-gradient(90deg, transparent 24%, #00ccff44 25%, #00ccff44 26%, transparent 27%, transparent);
+    background-size: 50px 50px;
+    background-position: -25px -25px;
+    transform: perspective(500px) rotateX(60deg);
+    transform-origin: bottom;
+    animation: grid-move 20s linear infinite;
+}
+
+@keyframes grid-move {
+    0% {
+        background-position: -25px -25px;
+    }
+    100% {
+        background-position: -25px 25px;
+    }
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* HEADER */
+.retro-header {
+    padding: 20px 0;
+    border-bottom: 3px solid #00ccff;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.retro-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo-retro {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-retro img {
+    height: 50px;
+    width: auto;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 10px #00ccff);
+}
+
+.retro-text {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 20px;
+    color: #00ccff;
+    text-shadow: 2px 2px 0 #00ff00;
+}
+
+.nav-retro {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-retro a {
+    color: #00ccff;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Press Start 2P', monospace;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-retro a:hover {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+    transform: translateY(-2px);
+}
+
+.btn-retro-buy {
+    background: #00ccff;
+    color: #000;
+    border: 3px solid #00ff00;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0 #00ff00;
+}
+
+.btn-retro-buy:hover {
+    background: #00ff00;
+    box-shadow: 0 0 20px #00ccff, 2px 2px 0 #00ff00;
+    transform: translate(2px, 2px);
+}
+
+/* HERO */
+.hero-retro {
+    padding: 100px 0;
+    position: relative;
+}
+
+.retro-frame {
+    position: relative;
+    padding: 60px 40px;
+    border: 4px solid #00ccff;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 40px #00ccff66;
+}
+
+.frame-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 4px solid #00ff00;
+}
+
+.frame-corner.tl {
+    top: -4px;
+    left: -4px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.frame-corner.tr {
+    top: -4px;
+    right: -4px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.frame-corner.bl {
+    bottom: -4px;
+    left: -4px;
+    border-right: none;
+    border-top: none;
+}
+
+.frame-corner.br {
+    bottom: -4px;
+    right: -4px;
+    border-left: none;
+    border-top: none;
+}
+
+.glitch-retro {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 48px;
+    color: #00ccff;
+    text-shadow: 3px 3px 0 #00ff00, -2px -2px 0 #ff0099;
+    margin-bottom: 20px;
+    animation: glitch-effect 3s infinite;
+    position: relative;
+    letter-spacing: 2px;
+}
+
+@keyframes glitch-effect {
+    0%, 90%, 100% {
+        transform: translate(0);
+        text-shadow: 3px 3px 0 #00ff00, -2px -2px 0 #ff0099;
+    }
+    92% {
+        transform: translate(-3px, 3px);
+        text-shadow: 5px 0 0 #00ff00, -5px 0 0 #ff0099;
+    }
+    94% {
+        transform: translate(3px, -3px);
+        text-shadow: 0 5px 0 #00ff00, 0 -5px 0 #ff0099;
+    }
+}
+
+.retro-ticker {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 24px;
+    color: #00ff00;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #00ccff44;
+}
+
+.retro-tagline {
+    font-family: 'VT323', monospace;
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #00ccff;
+    animation: blink-text 1.5s infinite;
+}
+
+@keyframes blink-text {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0.3; }
+}
+
+.retro-subtitle {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    color: #00ff00;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.retro-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.btn-retro-primary,
+.btn-retro-secondary {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    padding: 15px 30px;
+    border: 3px solid #00ccff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-retro-primary {
+    background: #00ccff;
+    color: #000;
+    box-shadow: 4px 4px 0 #00ff00;
+}
+
+.btn-retro-primary:hover {
+    background: #00ff00;
+    box-shadow: 0 0 20px #00ccff, 2px 2px 0 #00ff00;
+    transform: translate(2px, 2px);
+}
+
+.btn-retro-secondary {
+    background: #000;
+    color: #00ccff;
+    box-shadow: 4px 4px 0 #00ff00;
+}
+
+.btn-retro-secondary:hover {
+    background: #00ccff22;
+    box-shadow: 0 0 20px #00ccff, 2px 2px 0 #00ff00;
+    transform: translate(2px, 2px);
+}
+
+.social-retro {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.social-retro a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #00ccff;
+    color: #000;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    border: 4px solid #00ff00;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #00ff00, 8px 8px 0 #00ccff44;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.social-retro a:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #00ff00, 4px 4px 0 #00ccff44;
+    background: #00ff00;
+}
+
+.social-retro svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+/* ABOUT SECTION */
+.about-retro {
+    padding: 80px 0;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.section-title-retro {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #00ccff;
+    text-shadow: 3px 3px 0 #00ff00;
+    letter-spacing: 2px;
+}
+
+.retro-content {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.retro-content p {
+    font-family: 'VT323', monospace;
+    font-size: 24px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #00ccff;
+}
+
+.cards-retro {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.retro-card {
+    border: 4px solid #00ccff;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.9);
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    box-shadow: 4px 4px 0 #00ff00;
+}
+
+.retro-card:hover {
+    border-color: #00ff00;
+    box-shadow: 0 0 30px #00ccff66, 2px 2px 0 #00ff00;
+    transform: translate(2px, 2px);
+}
+
+.card-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    display: block;
+    animation: float-icon 3s ease-in-out infinite;
+}
+
+@keyframes float-icon {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.card-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    color: #00ff00;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.card-text {
+    font-family: 'VT323', monospace;
+    font-size: 28px;
+    color: #00ccff;
+    font-weight: bold;
+}
+
+/* FEATURES SECTION */
+.features-retro {
+    padding: 80px 0;
+    background: rgba(26, 0, 51, 0.5);
+}
+
+.features-retro .retro-card h3 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 16px;
+    color: #00ccff;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.features-retro .retro-card p {
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    color: #00ff00;
+    margin: 0;
+}
+
+/* TOKENOMICS SECTION */
+.tokenomics-retro {
+    padding: 80px 0;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.tokenomics-grid-retro {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+}
+
+.tokenomics-grid-retro .retro-card {
+    text-align: left;
+}
+
+.tokenomics-grid-retro .retro-card h3 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 20px;
+    color: #00ff00;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.token-row {
+    font-family: 'VT323', monospace;
+    font-size: 24px;
+    padding: 15px;
+    border-bottom: 2px solid #00ccff44;
+    color: #00ccff;
+    letter-spacing: 1px;
+}
+
+.token-row:last-child {
+    border-bottom: none;
+}
+
+.dist-retro-bar {
+    margin-bottom: 20px;
+}
+
+.dist-fill {
+    background: linear-gradient(90deg, #00ccff, #00ff00);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #00ff00;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    color: #000;
+    transition: transform 0.5s ease;
+    box-shadow: 4px 4px 0 #00ff0044;
+    letter-spacing: 1px;
+}
+
+.dist-fill:hover {
+    transform: translateX(5px);
+}
+
+/* ROADMAP SECTION */
+.roadmap-retro {
+    padding: 80px 0;
+    background: rgba(26, 0, 51, 0.5);
+}
+
+.timeline-retro {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.timeline-retro .retro-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.level-badge {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    background: #00ff00;
+    color: #000;
+    padding: 10px 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 3px solid #00ccff;
+    letter-spacing: 1px;
+    box-shadow: 3px 3px 0 #00ccff44;
+}
+
+.timeline-retro .retro-card h3 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 18px;
+    color: #00ccff;
+    margin-bottom: 10px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.timeline-retro .retro-card p {
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    color: #00ff00;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.timeline-retro .retro-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.timeline-retro .retro-card li {
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    color: #00ccff;
+    padding: 10px 0;
+    border-bottom: 1px solid #00ccff33;
+    letter-spacing: 0.5px;
+}
+
+.timeline-retro .retro-card li:last-child {
+    border-bottom: none;
+}
+
+/* FOOTER */
+.footer-retro {
+    padding: 60px 0 30px;
+    border-top: 4px solid #00ccff;
+    background: rgba(0, 0, 0, 0.95);
+}
+
+.footer-content-retro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-brand-retro {
+    flex: 1;
+}
+
+.footer-brand-retro h3 {
+    font-family: 'Press Start 2P', monospace;
+    color: #00ccff;
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-shadow: 2px 2px 0 #00ff00;
+}
+
+.footer-brand-retro p {
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: #00ff00;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.footer-links-retro {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-links-retro a {
+    color: #00ccff;
+    text-decoration: none;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.footer-links-retro a:hover {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+    transform: translateY(-2px);
+}
+
+.copyright-retro {
+    text-align: center;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    color: #00ccff;
+    padding-top: 30px;
+    border-top: 2px solid #00ccff44;
+    letter-spacing: 1px;
+    animation: blink-text 2s infinite;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .glitch-retro {
+        font-size: 36px;
+    }
+    
+    .section-title-retro {
+        font-size: 24px;
+    }
+    
+    .tokenomics-grid-retro {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .retro-header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav-retro {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .glitch-retro {
+        font-size: 28px;
+    }
+    
+    .retro-frame {
+        padding: 40px 20px;
+    }
+    
+    .retro-buttons {
+        flex-direction: column;
+    }
+    
+    .cards-retro {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline-retro {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content-retro {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-links-retro {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .glitch-retro {
+        font-size: 22px;
+    }
+    
+    .section-title-retro {
+        font-size: 18px;
+    }
+    
+    .retro-ticker {
+        font-size: 18px;
+    }
+    
+    .sun {
+        width: 200px;
+        height: 200px;
+    }
+}
